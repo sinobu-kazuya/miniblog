@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(text: blog_params[:text],image: blog_params[:image], name: blog_params[:name])
+    @blog = Blog.new(text: blog_params[:text],image: blog_params[:image], name: blog_params[:name],user_id: current_user.id)
     @blog.save
   end
 
