@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   def index
+    @blogs = Blog.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -11,13 +13,25 @@ class BlogsController < ApplicationController
     @blog.save
   end
 
-  def show
-  end
-
   def destroy
+    blog = Blog.find(params[:id])
+    if blog.user_id == current_user.id
+      blog.destroy
+    end
   end
 
-  private
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    blog = Blog.find(params[:id])
+    if blog.user_id == current_user.id
+      blog.update(blog_params)
+    end
+  end
+
+
   def blog_params
     params.require(:blog).permit(:image, :text, :name)
   end

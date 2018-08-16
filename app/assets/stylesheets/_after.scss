@@ -1,0 +1,26 @@
+.after{
+  width:100vw;
+  height: 100vw;
+  background-color: $backcolor;
+  .afterbox{
+    width: 200px;
+    margin: 0 auto;
+    padding: 200px 0;
+    .afterstyle{
+      height: 30px;
+      width: 200px;
+      background-color:$white;
+      border: 2px groove $yellow;
+      text-align: center;
+      line-height: 30px;
+    }
+    .afterbtn{
+      height: 30px;
+      width: 200px;
+      background-color:$white;
+      border: 2px groove $yellow;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.mypage{
+  .sidecontent{
+      float: right;
+      width: calc(100vw - 1250px);
+      height: 100%;
+      .sidecontents{
+        width: 300px;
+        height: 500px;
+        background-color: $blogback;
+        border: 2px solid $black;
+        margin: 0 auto;
+        margin-bottom: 60px;
+        .sidecontent__rank{
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          color: $wordcolor;
+        }
+        .sidecontent__favorite{
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          color: $wordcolor;
+        }
+      }
+    }
+  }
