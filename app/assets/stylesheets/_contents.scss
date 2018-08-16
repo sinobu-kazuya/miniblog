@@ -5,10 +5,15 @@ html, body { height: 100vh; }
   height: 100vw;
   background-color: $backcolor;
   padding-top: 40px;
+  position: relative;
+  .pagination{
+    position: absolute;
+    right: 48vw;
+    bottom: 0px;
+  }
   .maincontent{
-    width: 1250px;
+    width: 100vw;
     height: 100vw;
-    float: left;
     .maincontents{
       width: 800px;
       height: 400px;
@@ -24,7 +29,10 @@ html, body { height: 100vh; }
         .list{
           padding:45px 5px 45px 10px;
           font-size: 18px;
-          text-align: right;
+          text-align: center;
+          .i{
+            font-size: 30px;
+          }
         }
       }
       .content__poems{

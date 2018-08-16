@@ -16,10 +16,11 @@
               = format_posted_time(blog.created_at)
             %ul.content__lists
               %li.list
-                =link_to "お気に入り"
+                =link_to blog_favorites_path(blog.id), method: :post do
+                  %i.large.material-icons favorite_border
               -if user_signed_in? && current_user.id == blog.user_id
                 %li.list
                   =link_to "編集ボタン", edit_blog_path(blog.id), method: :get
                 %li.list
                   =link_to "削除ボタン", "/blogs/#{blog.id}", method: :delete, data: { confirm: 'Are you sure?' }
-                  = paginate @blogs
+  = paginate @blogs
