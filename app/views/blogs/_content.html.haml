@@ -4,11 +4,16 @@
       .maincontents
         .content__poems
           .content__poems-text
-            = blog.name
-            - if blog.text.present?
-              = blog.text
-            = image_tag blog.image
-              -if blog.image.present?
+            .content__poems-text-box
+              - if blog.text.present?
+                = blog.text
+              .content__poems-image-box
+              = image_tag blog.image
+                -if blog.image.present?
+              .content__poems-name-box
+              = blog.name
+              .content__poems-time-box
+              = format_posted_time(blog.created_at)
             %ul.content__lists
               %li.list
                 =link_to "お気に入り"
@@ -17,3 +22,4 @@
                   =link_to "編集ボタン", edit_blog_path(blog.id), method: :get
                 %li.list
                   =link_to "削除ボタン", "/blogs/#{blog.id}", method: :delete, data: { confirm: 'Are you sure?' }
+                  = paginate @blogs
