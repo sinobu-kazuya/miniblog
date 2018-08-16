@@ -1,27 +1,2 @@
 = render partial: 'blogs/header'
-.contents
-  .maincontent
-    .maincontents
-      .content__poems
-        .content__poems-text
-          @blogs.text
-      %ul.content__lists
-        %li.list
-          =link_to '#' do
-            詳細ボタン
-        %li.list
-          =link_to '#' do
-            編集ボタン
-        %li.list
-          =link_to '#' do
-            削除ボタン
-        %li.list
-          =link_to '#' do
-            お気に入り
-  .sidecontent
-    .sidecontents
-      .sidecontent__rank
-        人気poemランキング
-    .sidecontents
-      .sidecontent__favorite
-        お気に入りpoem一覧
+= render partial: 'blogs/content', locals: { blogs: @blogs }

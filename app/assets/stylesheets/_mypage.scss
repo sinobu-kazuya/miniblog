@@ -1,0 +1,47 @@
+html, body { height: 100vh; }
+
+.mypage{
+  width: 100vw;
+  height: 100vw;
+  background-color: $backcolor;
+  padding-top: 40px;
+  .mypagecontent{
+    text-align: center;
+    width: 1250px;
+    height: 100vw;
+    float: left;
+    .mypagecontents{
+      width: 800px;
+      height: 400px;
+      background-color: $blogback;
+      border: 2px solid $black;
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      .mypage__poems{
+        width: 800px;
+        height:100%;
+        float:left;
+        margin: auto;
+        text-align: center;
+        .mypage__poems-text{
+          padding: 20px;
+          height: 90%;
+          margin: 0 auto;
+          position: reletive;
+          img {
+          width:auto;
+          height:auto;
+          max-width:70%;
+          max-height:70%;
+          float:left;
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          margin:0 auto;
+          }
+        }
+      }
+    }
+  }
+}

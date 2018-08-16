@@ -1,0 +1,20 @@
+= render partial: 'blogs/header'
+.mypage
+  .mypagecontent
+    %p <あなたの投稿一覧>
+    - @blogs.each do |blog|
+      .mypagecontents
+        .mypage__poems
+          .mypage__poems-text
+            = blog.name
+            - if blog.text.present?
+              = blog.text
+            = image_tag blog.image
+              - if blog.image.present?
+        / .sidecontent
+        /   .sidecontents
+        /     .sidecontent__rank
+        /       人気poemランキング
+        /   .sidecontents
+        /     .sidecontent__favorite
+        /       お気に入りpoem一覧
