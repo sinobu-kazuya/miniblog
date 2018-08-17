@@ -1,11 +1,11 @@
 .formstyle
   .formbox
     = form_for [@blog] do |f|
-      .field-label
+      .field-label__image
         = f.text_field :image, placeholder: "Image Url", type: "text"
-      .field-label
+      .field-label__text
         = f.text_field :text, placeholder: "文章を入力してください", type: "text"
-      .field-label
+      .field-label__name
         = f.text_field :name, placeholder: "ニックネームを入力してください", type: "text"
-      .field-label
+      .field-label__btn
         = f.submit 'Send', class: 'btn'
