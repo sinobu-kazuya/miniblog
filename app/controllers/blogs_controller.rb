@@ -1,7 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!
   def index
-    @blogs = Blog.includes(:user).page(params[:page]).per(4).order("created_at DESC")
+    @blogs = Blog.includes(:user, :favorites).page(params[:page]).per(4).order("created_at DESC")
   end
 
   def new
