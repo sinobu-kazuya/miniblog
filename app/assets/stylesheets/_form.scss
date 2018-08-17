@@ -3,7 +3,7 @@
   height: 100vw;
   background-color: $backcolor;
   .formbox{
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
     padding: 200px 0;
     .form{
@@ -11,8 +11,18 @@
       height: 30px;
       background-color:$white;
       border: 2px groove $yellow;
-      text-align: center;
-      line-height: 30px;
     }
   }
+}
+#blog_image{
+  width: 500px;
+  height: 30px;
+}
+#blog_text{
+  width: 500px;
+  height: 60px;
+}
+#blog_name{
+  width: 500px;
+  height: 30px;
 }
