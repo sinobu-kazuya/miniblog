@@ -2,10 +2,19 @@
   %h2.header__title
     = link_to root_path do
       Poemer
-  %ul.header__lists
-    %li.list
-      = link_to  "ログアウト", destroy_user_session_path, method: :delete
-    %li.list
-      = link_to "投稿", new_blog_path, method: :get
-    %li.list
-      = link_to "マイページ", user_path(current_user.id), method: :get
+  - @blogs.each do |blog|
+    %ul.header__lists
+      - if user_signed_in?
+        %li.list
+          = link_to "投稿", new_blog_path, method: :get
+        %li.list
+          = link_to "マイページ", "users/#{blog.user.id}", method: :get
+        %li.list
+          = link_to "お気に入り一覧", "blogs/#{blog.id}/favorites/#{blog.user.id}", method: :get
+        %li.list
+          = link_to  "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        %li.list
+          = link_to  "新規登録", new_user_registration_path, method: :get
+        %li.list
+          = link_to  "ログイン", new_user_session_path, method: :get

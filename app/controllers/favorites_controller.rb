@@ -2,17 +2,20 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.create(user_id: current_user.id, blog_id: params[:blog_id])
     @favorites = Favorite.where(blog_id: params[:blog_id])
-    @blogss = Blog.all
+    @blogs = Blog.all
   end
 
   def destroy
-    favorite = Favorite.find_by(user_id: current_user.id, blog_id: params[:blog_id])
+    user = User.find(params[:id])
+    @favorites = Favorite.where("user_id = ?", user)
+    @favorites.each do |favorite|
     favorite.destroy
-    @favorite = Favorite.where(blog_id: params[:blog_id])
-    @blogs = Blogs.all
+    end
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    user = User.find(params[:id])
+    @favorites = Favorite.where("user_id = ?", user)
+    @blogs = user.blogs.page(params[:page]).per(4).order("created_at DESC")
   end
 end

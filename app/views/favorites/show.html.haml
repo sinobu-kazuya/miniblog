@@ -1,0 +1,21 @@
+.favorite
+  %h2.favorite__title
+    = link_to "Poemer", root_path
+  .favoritepage
+    .favoritepagecontent
+      %h2.title <お気に入り一覧>
+      - @blogs.each do |blog|
+        .favoritepagecontents
+          .favoritepage__poems
+            .favoritepage__poems-text
+              .favoritepage__poems-text-box
+              - if blog.text.present?
+                = blog.text
+              .favoritepage__poems-image-box
+              = image_tag blog.image
+                - if blog.image.present?
+              .favoritepage__poems-name-box
+              = blog.name
+              .favoritepage__poems-time-box
+              = format_posted_time(blog.created_at)
+    = paginate @blogs
