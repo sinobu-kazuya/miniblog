@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :blogs, through: :favorites
   has_many :favorites
-  belongs_to :blog
 
 end
